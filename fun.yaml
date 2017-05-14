@@ -1,0 +1,143 @@
+#Welcome to YAML! This is where you will be writing up your questions and answer choices, as well as 
+#the response messages and the ranges of scores for the quiz! 
+#Remember, YAML is written as a list, but when it's imported to python, it becomes a python dictionary 
+#Score and Survey are both keys, and the following lists are their values, but each of those values are 
+#dictionaries as well. So, these are dictionaries within dictionaries. 
+#Syntax is important in YAML! Each indent is TWO spaces (do not hit the tab key only)
+#NEVER HIT THE TAB KEY. YAML cannot read tabs. Use the spacebar instead. 
+#
+#
+#This is the section that determines score ranges and their corresponding return messages. 
+        #In order to change the range, simply change the numbers within the brackets
+        #In order to change the return message, change the words in the string. Make sure that it is contained 
+        #within quotation marks. 
+        #In order to add a new range, copy the syntax as it's already written. 
+        #REMEMBER: Everytime you add a new question with point values, you have to adjust the ranges. You can usually just add the max number of points to the greater end of the ranges. 
+score: 
+- Range: [0, 12]
+  Message: "Girls Who Code may seem like an intimidating or not-ideal pick but never fear! There is room for everyone in this club! Everyone can find some way to contribute to our mission. Stay posted for our meeting times so you can find out more!"
+- Range: [12,23]
+  Message: "It looks like you are a good fit for Girls Who Code! You have many of the key elements we look for in our members. Come to some of our meetings to see if this club is right for you, but I have a feeling that it is!!!"
+- Range: [23,34]
+  Message: "JOIN GIRLS WHO CODE!!! We need amazing, skillfull people like you, and you will love it here! You'll fit right in!"
+#
+#
+#This is the section that allows you to write the questions for the survey. Note that each key in the survey dictionary nests three of it's own dictionaires, a query (that determines the question), a key (that gives the question a key word to identify it in the code), and choices (that contain their own nested dictionaries with answer choices). 
+#In order to add more questions, simply copy down the syntax as it is and fill in the strings. Make sure everything is contained within strings. If you add a question in between, make sure you change the number markers.
+survey: 
+- query: "1. Do you know any code?" #query has a dash because it's the start of a nested list
+  key: "code" #key and choices are indented by two spaces to also be part of the nested list
+  choices: 
+    - choice: "a. Yes"
+      points: 2  #point values do not have to be written in a string. The point key is nested under the choices dictionary.
+    - choice: "b. Maybe... I don't know"
+      points: 0 
+    - choice: "c. Nope"
+      points: 0
+- query: "2. Do you like math?"
+  key: "math" 
+  choices: 
+    - choice: "a. Yes"
+      points: 2 
+    - choice: "b. Maybe... I don't know"
+      points: 0
+    - choice: "c. No" 
+      points: 0
+- query: "3. Do you enjoy solving puzzles?"
+  key: "puzzles"
+  choices: 
+    - choice: "a. Yes"
+      points: 2 
+    - choice: "b. I'm not sure"
+      points: 0 
+    - choice: "c. No"
+      points: 0 
+- query: "4. Do you see yourself as a creative problem-solver?"
+  key: "creative"
+  choices: 
+    - choice: "a. Yes"
+      points: 3 
+    - choice: "b. I like creative endeavors, but I don't think I'm a good problem-solver."
+      points: 1 
+    - choice: "c. No"
+      points: 0 
+- query: "5. Are you a perfectionist?"
+  key: "perfectionist"
+  choices: 
+    - choice: "a. Yes"
+      points: 1
+    - choice: "b. My friends say I am, but I don't think so."
+      points: 1 
+    - choice: "c. Not at all"
+      points: 0 
+- query: "6. Do you enjoy making lists and organizing your thoughts in outlines or something similar?"
+  key: "lists"
+  choices: 
+    - choice: "a. Yes"
+      points: 3
+    - choice: "b. I don't enjoy it but I do it"
+      points: 1
+    - choice: "c. No"
+      points: 0 
+- query: "7. Are you a good researcher?"
+  key: "research"
+  choices: 
+    - choice: "a. I am a thorough researcher and make sure I fully understand everything I can about the topic."
+      points: 4 
+    - choice: "b. I do enough research to get by."
+      points: 2 
+    - choice: "c. I don't enjoy it, but I can research well when I need to."
+      points: 2 
+    - choice: "d. I really don't like research and avoid it as much as possible."
+      points: 0 
+- query: "8. Can you spend a long time working on the same project?"
+  key: "time"
+  choices: 
+    - choice: "a. Yes, I can easily spend 3-4 hours at a time working on something"
+      points: 4 
+    - choice: "b. Yes, I can spend about an hour or two of focused work on a project at a time"
+      points: 3 
+    - choice: "c. Sort of, I need to take frequent breaks, but I can work on a project for an extensive amount of time if I have to"
+      points: 2 
+    - choice: "d. No, I really don't have a good attention span"
+      points: 0 
+- query: "9. When you run into problems that you don't know how to solve, how do you usually respond?"
+  key: "problems"
+  choices: 
+    - choice: "a. I don't need that stress in my life, I give up." 
+      points: 0 
+    - choice: "b. I walk away and come back to it after a good break."
+      points: 2 
+    - choice: "c. I keep at it until I solve it, no matter the frustration."
+      points: 2 
+- query: "10. If an interviewer asks you 'How many cars are in the US?' what is your first reaction?"
+  key: "interviewer"
+  choices: 
+    - choice: "a. How am I supposed to know?"
+      points: 0 
+    - choice: "b. Um, can I google that?"
+      points: 1 
+    - choice: "c. Well, there are 300 million people in the US, and the average household has about one car for two people, but there are a lot of unsold cars in the lots so you have to bump that up by a few and you get..."
+      points: 4 
+    - choice: "d. 260, 550, 070"
+      points: 2 
+- query: "11. Your friend gives you a recipe, but it is very complicated. What do you do?"
+  key: "recipe"
+  choices: 
+    - choice: "a. Give it to your dad, he loves to bake."
+      points: 0 
+    - choice: "b. Buy the ingredients and then at least try to follow the recipe."
+      points: 2 
+    - choice: "c. Throw it in the trash. You can just buy cookies if you want some."
+      points: 0 
+    - choice: "d. Get the ingredients and get to work, complicated instructions don't scare you."
+      points: 3
+- query: "12. Are you wondering what type of code is going into this questionnaire?"
+  key: "curious"
+  choices: 
+    - choice: "a. Not at all, I just want an answer"
+      points: 0 
+    - choice: "b. I wasn't but now I am!"
+      points: 2
+    - choice: "c. Yes! What's in that command line magic?"
+      points: 3 
